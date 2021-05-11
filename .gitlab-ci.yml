@@ -64,22 +64,6 @@ package:
     paths:
       - ./*.tgz
 
-coverage report:
-  stage: publish
-  dependencies:
-    - test & coverage
-  script:
-    - mv coverage/lcov-report/ public/
-  artifacts:
-    paths:
-      - public
-    expire_in: 3 months
-  only:
-    - master
-  environment:
-    name: coverage report
-    url: https://formschema.gitlab.io/native
-
 publish on npm:
   stage: publish
   needs:
